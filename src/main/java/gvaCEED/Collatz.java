@@ -1,21 +1,41 @@
 package gvaCEED;
 import java.util.Scanner;
-
 public class Collatz {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-   
 
-        // ✅ 1. Demanar un numero positiu
-       
-        // ✅ 2. Guardar el numero inicial
+        // declarar scanner i variables
+        Scanner scan = new Scanner(System.in);
+        int numero = 0;
+        int passos = 0;
+        String sequencia = "";
 
-        // ✅ 3.Mostra
+        // llegir número
+        while (numero <= 0) {
+            System.out.print("Introdueix un nombre positiu: ");
+            numero = scan.nextInt();
+        }
 
-        // ✅ 4. Mostrar la seqüència amb while
+        // mostrar missatge
+        System.out.println("Seqüència de Collatz per al nombre: " + numero);
 
-        // ✅ 5. Mostrar el numero total de passos
-    }
+        // calcular la seqüència
+        sequencia = sequencia + numero;
+        while (numero != 1) {
+            if (numero % 2 == 0) {
+                numero = numero / 2;
+            } else {
+                numero = (numero * 3) + 1;
+            }
+            sequencia = sequencia + " --> " + numero;
+            passos++;
+        }
+        
+        // mostrar seqüència completa i número de passos
+        System.out.println(sequencia);
+        System.out.println("Nombre total de passos: " + passos);
 
-} 
+        // tancar scanner
+        scan.close();
+    }      
+}
 
